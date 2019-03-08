@@ -3,14 +3,14 @@ from flask import Blueprint, request, jsonify, json
 
 from web import util
 
-bp = Blueprint('aggregate_accumulative', __name__)
-callback_url = f'{util.HOST_URL}/extension/transformation/aggregate-accumulative'
+bp = Blueprint('serial_interpolation', __name__)
+callback_url = f'{util.HOST_URL}/extension/interpolation/serial-interpolation'
 
-""" Transformation Structure:
+""" Interpolation Structure:
 {
     extensionId: "",
     extension: enum("Transformation", "Validation", "Interpolation"),
-    function: "AggregateAccumulative",
+    function: "SerialLinear",
     inputVariables: [
         {
             variableId: "",
@@ -37,10 +37,10 @@ callback_url = f'{util.HOST_URL}/extension/transformation/aggregate-accumulative
 """
 
 
-@bp.route('/extension/transformation/aggregate-accumulative', methods=['POST'])
+@bp.route('/extension/interpolation/serial-interpolation', methods=['POST'])
 def extension_transformation_aggregate_accumulative():
     extension = request.get_json()
-    print("Extension Transformation AggregateAccumulative:", extension)
+    print("Extension Interpolation SerialLinear:", extension)
     assert 'extensionId' in extension, f'extensionId should be provided'
     assert 'inputVariables' in extension and isinstance(extension['inputVariables'], list), \
         f'inputVariables should be provided'

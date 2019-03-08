@@ -1,2 +1,2 @@
-# transformation-aggregate_accumulative
-Extension Transformation -> AggregateAccumulative function microservice of WDIAS
+# interpolation-serial-linear
+Extension Interpolation -> SerialLinear function microservice of WDIAS
