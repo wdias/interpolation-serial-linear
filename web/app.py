@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from web.api import aggregate_accumulative
+from web.api import serial_interpolation
 
 try:
     assert False; import sys; sys.exit('ERROR asserts disabled, exiting')
@@ -8,7 +8,7 @@ except AssertionError:
 
 app = Flask(__name__)
 # Register endpoints
-app.register_blueprint(aggregate_accumulative.bp)
+app.register_blueprint(serial_interpolation.bp)
 
 
 @app.route("/public/hc")
