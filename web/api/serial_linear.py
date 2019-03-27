@@ -4,7 +4,7 @@ from flask import Blueprint, request, jsonify, json
 from web import util
 
 bp = Blueprint('serial_interpolation', __name__)
-callback_url = f'{util.HOST_URL}/extension/interpolation/serial-interpolation'
+callback_url = f'{util.HOST_URL}/extension/interpolation/serial-linear'
 
 """ Interpolation Structure:
 {
@@ -37,7 +37,7 @@ callback_url = f'{util.HOST_URL}/extension/interpolation/serial-interpolation'
 """
 
 
-@bp.route('/extension/interpolation/serial-interpolation', methods=['POST'])
+@bp.route('/extension/interpolation/serial-linear', methods=['POST'])
 def extension_transformation_aggregate_accumulative():
     extension = request.get_json()
     print("Extension Interpolation SerialLinear:", extension)
